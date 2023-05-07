@@ -1,0 +1,8 @@
+# 需要省略的文件
+/data
+/data_sr_not_use_best
+/data_sr_use_best
+/results
+/zte_submissions
+
+
