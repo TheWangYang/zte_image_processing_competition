@@ -2,8 +2,8 @@ import os
 import shutil
 
 # 设置主目录路径和输出目录路径
-main_directory = "./results/2023050501"
-output_directory = "./results/need_super_pixel"
+main_directory = "./need_process_data/data"
+output_directory = "./need_process_data/data_all"
 
 # 遍历所有子目录
 for subdir in os.listdir(main_directory):

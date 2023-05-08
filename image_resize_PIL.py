@@ -4,7 +4,7 @@ import os
 # 定义目标长宽
 MAX_LENGTH = 1280
 MAX_SHORT = 720
-RESULTS_PATH = ".\\results\\2023050703"
+RESULTS_PATH = ".\\results\\2023050806"
 
 # 遍历目录下的所有文件
 def process_files(root_dir):
@@ -43,4 +43,4 @@ def process_image(file_path, result_path, item_name):
     image.save(result_path)
 
 # 测试
-process_files('.\\data_sr_use_best')
+process_files('.\\need_process_data\\data')
