@@ -2,7 +2,7 @@ from PIL import Image
 import os
 
 # 定义目标长宽
-RESULTS_PATH = ".\\results\\2023050704"
+RESULTS_PATH = ".\\data_best_pixel"
 
 # 遍历目录下的所有文件
 def process_files(root_dir):
@@ -11,7 +11,7 @@ def process_files(root_dir):
         print("files: ", files)
         # 按照分辨率最高的图像进行复制
         item_name = subdir.split('\\')[-1]
-        result_path = RESULTS_PATH + "\\" + item_name
+        result_path = RESULTS_PATH
         os.makedirs(result_path, exist_ok=True)
         result_path_list = []
         # 得到原始图片中最大分辨率的路径
@@ -34,9 +34,13 @@ def process_files(root_dir):
                 if pixel > MAX_PIXEL:
                     MAX_PIXEL = pixel
                     max_pixel_image_path = file_path
+                    max_path = result_path + "\\" + file
+        
         print("max_pixel_image_path: ", max_pixel_image_path)
+        image = Image.open(max_pixel_image_path)
+        image.save(max_path)
         # 批量处理图片
-        process_image(max_pixel_image_path, result_path_list)
+        # process_image(max_pixel_image_path, result_path_list)
 
 # 处理多张图片
 def process_image(max_pixel_image_path, result_path_list):
@@ -56,9 +60,9 @@ def process_image(max_pixel_image_path, result_path_list):
     # 缩放图片
     image = image.resize((new_width, new_height), Image.BICUBIC)
     
-    for path in result_path_list:
-        # 保存图片
-        image.save(path)
+    # for path in result_path_list:
+    #     # 保存图片
+    #     image.save(path)
 
 # 测试
 process_files('.\\data')
